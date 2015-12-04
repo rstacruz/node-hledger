@@ -1,0 +1,18 @@
+{
+  "name": "hledger-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "expect": "1.13.0",
+    "mocha": "2.3.4"
+  },
+  "dependencies": {
+    "pinkie-promise": "2.0.0"
+  }
+}
