@@ -20,50 +20,61 @@ hledger('bal Assets')
 
 Invokes hledger and resolves into the CSV output of hledger.
 
-    hledger(['bal', 'Assets'])
-      .then((data) => ...)
+```js
+hledger(['bal', 'Assets'])
+  .then((data) => ...)
 
-    [ [ 'account', 'balance' ],
-      [ 'Assets', '$200' ],
-      [ 'Assets:Savings', '$150' ],
-      [ 'Assets:Checking', '$50' ] ]
+[ [ 'account', 'balance' ],
+  [ 'Assets', '$200' ],
+  [ 'Assets:Savings', '$150' ],
+  [ 'Assets:Checking', '$50' ] ]
+```
 
 You can invoke it with a string:
 
-    hledger('bal Assets')
+```js
+hledger('bal Assets')
+```
 
 You can then use functions to make better sense of them:
 
-    hledger(['bal', 'Assets'])
-      .then(hledger.tableize)
-      .then((data) => ...)
+```js
+hledger(['bal', 'Assets'])
+  .then(hledger.tableize)
+  .then((data) => ...)
 
-    [ { account: 'Assets', balance: '$200' },
-      { account: 'Assets:Savings', balance: '$150' },
-      ... ]
+[ { account: 'Assets', balance: '$200' },
+  { account: 'Assets:Savings', balance: '$150' },
+  ... ]
+
+```
 
 ### hledger.tableize
 
 > `exports(list)`
 
+hledger.tableize:
 Turns a CSV-based array into an table list.
 
-    input = [
-      ['account', 'amount'],
-      ['Savings', '$100'],
-      ['Checking', '$150']
-    ]
+```js
+input = [
+  ['account', 'amount'],
+  ['Savings', '$100'],
+  ['Checking', '$150']
+]
 
-    tableize(input)
-    // [ { account: 'Savings', amount: '$100' },
-    //   { account: 'Checking', amount: '$200' } ]
+tableize(input)
+// [ { account: 'Savings', amount: '$100' },
+//   { account: 'Checking', amount: '$200' } ]
+```
 
 Used for piping into `hledger()`'s promise output:
 
-    hledger('...')
-      .then(hledger.tableize)
-      .then((data) => ...)
-
+```js
+hledger('...')
+  .then(hledger.tableize)
+  .then((data) => ...)
+```
 <!--api:end-->
 
 [hledger]: http://hledger.org/

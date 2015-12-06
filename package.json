@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "expect": "1.13.0",
-    "mdx": "git://github.com/rstacruz/mdx.git#fa22dd913d4b67cfb311006fd45ea263d83f9968",
+    "mdx": "0.2.2",
     "mocha": "2.3.4"
   },
   "directories": {
