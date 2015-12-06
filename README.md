@@ -2,6 +2,8 @@
 
 Node.js API for [hledger].
 
+[![Status](https://travis-ci.org/rstacruz/node-hledger.svg?branch=master)](https://travis-ci.org/rstacruz/node-hledger "See test builds")
+
 ## API
 
 <!--api-->
