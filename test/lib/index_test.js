@@ -1,4 +1,4 @@
-var hl = require('../index')
+var hl = require('../../index')
 
 describe('my project', function () {
   it('works', function () {
