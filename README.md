@@ -12,9 +12,12 @@ Node.js API for [hledger].
 
 > `hledger(args, options)`
 
-Invokes hledger and resolves into the CSV output of hledger.
+Invokes hledger and returns a promise. It resolves into the CSV output as a
+2D array.
 
 ```js
+var hledger = require('hledger')
+
 hledger(['bal', 'Assets'])
   .then((data) => ...)
 
