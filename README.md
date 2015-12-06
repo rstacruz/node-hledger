@@ -2,14 +2,6 @@
 
 Node.js API for [hledger].
 
-```js
-hledger('bal Assets')
-.then((d) => ...)
-
-[ ['account', 'amount']
-  ['Assets', '$100'] ]
-```
-
 ## API
 
 <!--api-->
@@ -51,7 +43,7 @@ hledger(['bal', 'Assets'])
 
 ### hledger.tableize
 
-> `exports(list)`
+> `tableize(list)`
 
 hledger.tableize:
 Turns a CSV-based array into an table list.
