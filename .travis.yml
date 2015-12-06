@@ -1,7 +1,7 @@
 language: node_js
-addons:
-  apt:
-    packages:
-      - hledger
 node_js:
   - 4
+ghc:
+  - 7.8
+before_install:
+  - stack --resolver nightly install hledger
