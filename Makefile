@@ -3,6 +3,6 @@ update: README.md
 README.md: lib/index.js lib/tableize.js
 	@( sed '/<!--api-->/q' $@; \
 		echo; \
-		mdx $< --format markdown; \
+		./node_modules/.bin/mdx $< --format markdown; \
 		sed -n '/<!--api:end-->/,$$p' $@ ) > $@_
 	@mv $@_ $@
