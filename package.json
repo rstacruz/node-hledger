@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "expect": "1.13.0",
+    "mdx": "git://github.com/rstacruz/mdx.git#fa22dd913d4b67cfb311006fd45ea263d83f9968",
     "mocha": "2.3.4"
   },
   "directories": {
@@ -30,6 +31,7 @@
     "url": "git+https://github.com/rstacruz/node-hledger.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "prepublish": "make -B README.md"
   }
 }

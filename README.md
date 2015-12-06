@@ -10,6 +10,40 @@ hledger('bal Assets')
   ['Assets', '$100'] ]
 ```
 
+## API
+
+<!--api-->
+
+### hledger
+
+> `hledger(args, options)`
+
+Invokes hledger and resolves into the CSV output of hledger.
+
+    hledger(['bal', 'Assets'])
+      .then((data) => ...)
+
+    [ [ 'account', 'balance' ],
+      [ 'Assets', '$200' ],
+      [ 'Assets:Savings', '$150' ],
+      [ 'Assets:Checking', '$50' ] ]
+
+You can invoke it with a string:
+
+    hledger('bal Assets')
+
+You can then use functions to make better sense of them:
+
+    hledger(['bal', 'Assets'])
+      .then(hledger.tableize)
+      .then((data) => ...)
+
+   [ { account: 'Assets', balance: '$200' },
+     { account: 'Assets:Savings', balance: '$150' },
+     ... ]
+
+<!--api:end-->
+
 [hledger]: http://hledger.org/
 
 ## Thanks

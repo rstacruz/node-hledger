@@ -1,0 +1,8 @@
+# Use mdx to update readme.md
+update: README.md
+README.md: lib/index.js lib/tableize.js
+	@( sed '/<!--api-->/q' $@; \
+		echo; \
+		mdx $< --format markdown; \
+		sed -n '/<!--api:end-->/,$$p' $@ ) > $@_
+	@mv $@_ $@
