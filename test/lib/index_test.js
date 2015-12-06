@@ -21,7 +21,7 @@ describe('hledger', function () {
     })
   })
 
-  describe('errors', function () {
+  describe('errors when hledger is not found', function () {
     before(function () {
       process.env.HLEDGER_BIN = 'nonexistentexecutable'
     })
@@ -31,10 +31,42 @@ describe('hledger', function () {
     })
 
     it('are handled', function () {
-      return hl(['...'])
-      .catch((err) => {
+      return invert(hl(['...']))
+      .then((err) => {
         expect(err.message).toEqual('spawn nonexistentexecutable ENOENT')
       })
     })
   })
+
+  describe('errors with unknown flags', function () {
+    it('are handled', function () {
+      return invert(hl(['-X']))
+      .then((err) => {
+        expect(err.message).toEqual('hledger: Unknown flag: -X')
+      })
+    })
+
+    it('includes the code', function () {
+      return invert(hl(['-X']))
+      .then((err) => {
+        expect(err.code).toEqual(1)
+      })
+    })
+  })
 })
+
+/*
+ * Inverts a promise
+ */
+
+function invert (promise) {
+  return new Promise((resolve, reject) => {
+    promise
+      .then((data) => {
+        reject(new Error('Promise succeeded when expected to fail'))
+      })
+      .catch((err) => {
+        resolve(err)
+      })
+  })
+}
