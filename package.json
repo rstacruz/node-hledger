@@ -13,6 +13,8 @@
     "mocha": "2.3.4"
   },
   "dependencies": {
-    "pinkie-promise": "2.0.0"
+    "csv-parse": "1.0.1",
+    "pinkie-promise": "2.0.0",
+    "thenify": "3.1.1"
   }
 }

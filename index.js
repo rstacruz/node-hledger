@@ -1,7 +1,8 @@
-var Promise = require('pinkie-promise')
-var spawn = require('child_process').spawn
+const Promise = require('pinkie-promise')
+const spawn = require('child_process').spawn
+const csvParse = require('csv-parse')
 
-var HLEDGER_BIN = process.env['HLEDGER_BIN'] || 'hledger'
+const HLEDGER_BIN = process.env['HLEDGER_BIN'] || 'hledger'
 
 /*
  * Invokes hledger
@@ -19,12 +20,12 @@ var HLEDGER_BIN = process.env['HLEDGER_BIN'] || 'hledger'
  */
 
 function hledger (args, options) {
-  args = toArgs(args)
+  args = toArgs(args).concat(['-O', 'csv'])
 
   return new Promise((resolve, reject) => {
     var child = spawn(HLEDGER_BIN, args)
-    var stdout = ''
     var stderr = ''
+    var stdout = ''
 
     child.stdout.on('data', (data) => { stdout += data.toString() })
     child.stderr.on('data', (data) => { stderr += data.toString() })
@@ -33,7 +34,10 @@ function hledger (args, options) {
       if (code !== 0) {
         reject(new Error('Exit with code ' + code + '\n' + stderr))
       } else {
-        resolve(prepare(stdout))
+        csvParse(stdout, (err, data) => {
+          if (err) throw reject(err)
+          resolve(prepare(data))
+        })
       }
     })
   })
