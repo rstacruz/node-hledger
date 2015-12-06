@@ -1,20 +1,35 @@
 {
-  "name": "hledger-api",
+  "name": "hledger",
+  "description": "Node.js API for hledger.",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rstacruz/node-hledger/issues"
+  },
+  "dependencies": {
+    "csv-parse": "1.0.1",
+    "pinkie-promise": "2.0.0"
+  },
   "devDependencies": {
     "expect": "1.13.0",
     "mocha": "2.3.4"
   },
-  "dependencies": {
-    "csv-parse": "1.0.1",
-    "pinkie-promise": "2.0.0",
-    "thenify": "3.1.1"
+  "directories": {
+    "test": "test"
+  },
+  "homepage": "https://github.com/rstacruz/node-hledger#readme",
+  "keywords": [
+    "api",
+    "hledger",
+    "ledger"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rstacruz/node-hledger.git"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }
