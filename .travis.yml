@@ -1,0 +1,7 @@
+language: node_js
+addons:
+  apt:
+    packages:
+      - hledger
+node_js:
+  - 4
