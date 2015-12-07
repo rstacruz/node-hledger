@@ -3,5 +3,7 @@ node_js:
   - 4
 ghc:
   - 7.8
-before_install:
-  - stack --resolver nightly install hledger
+addons:
+  apt:
+    packages:
+      - hledger
