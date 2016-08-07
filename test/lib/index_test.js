@@ -42,7 +42,7 @@ describe('hledger', function () {
     it('are handled', function () {
       return invert(hl(['-X']))
       .then((err) => {
-        expect(err.message).toEqual('hledger: Unknown flag: -X')
+        expect(err.message).toInclude('hledger: Unknown flag: -X')
       })
     })
 
