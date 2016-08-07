@@ -1,7 +1,7 @@
 {
   "name": "hledger",
   "description": "Node.js API for hledger.",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com>",
   "bugs": {
     "url": "https://github.com/rstacruz/node-hledger/issues"
