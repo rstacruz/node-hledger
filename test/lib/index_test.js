@@ -38,6 +38,19 @@ describe('hledger', function () {
     })
   })
 
+  describe('handles accounts', function () {
+    it('works', function () {
+      return hl(['-f', 'test/fixtures/test.ledger', 'accounts'], { mode: 'list' })
+      .then((data) => {
+        expect(data).toEqual([
+          'Assets:Checking',
+          'Assets:Savings',
+          'Equity:Opening balances'
+        ])
+      })
+    })
+  })
+
   describe('errors with unknown flags', function () {
     it('are handled', function () {
       return invert(hl(['-X']))

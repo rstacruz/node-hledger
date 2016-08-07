@@ -50,6 +50,18 @@ hledger(['bal', 'Assets'])
 
 ```
 
+You may pass the option `{ mode: 'list' }` to support commands that don't have CSV output (eg, `accounts`).
+
+```js
+hledger('accounts', { mode: 'list' })
+.then(data => ...)
+
+[
+  'Assets:Savings',
+  'Assets:Checking'
+]
+```
+
 ### hledger.tableize
 
 > `tableize(list)`
