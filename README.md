@@ -47,19 +47,19 @@ hledger(['bal', 'Assets'])
 [ { account: 'Assets', balance: '$200' },
   { account: 'Assets:Savings', balance: '$150' },
   ... ]
-
 ```
 
-You may pass the option `{ mode: 'list' }` to support commands that don't have CSV output (eg, `accounts`).
+You may pass the option `{ mode: 'list' }` to support commands that don't
+have CSV output (eg, `accounts`).
 
 ```js
 hledger('accounts', { mode: 'list' })
 .then(data => ...)
 
-[
-  'Assets:Savings',
+[ 'Assets:Savings',
   'Assets:Checking'
 ]
+
 ```
 
 ### hledger.tableize
